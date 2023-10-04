@@ -1,0 +1,9 @@
+.stagiaire {
+  display: flex;
+  gap: 30px;
+}
+
+.stagiaire img {
+  width: 200px;
+  border-radius: 50%;
+}
