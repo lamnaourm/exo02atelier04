@@ -7,16 +7,19 @@ export default class Etablissement extends Component {
     }
     render() {
         return (
-            <div>
+            <div className='etablisement'>
                 <h1>Nombre de stagiaires : {this.state.list_stgs.length}</h1>
                 {
-                    this.state.list_stgs.map(s=> 
+                    this.state.list_stgs.map(s =>
                         <Stagiaire key={s.id} nom={s.nom} age={s.age} url={s.image} filiere={s.filiere} />
-                        )
+                    )
                 }
-
-                <button onClick={() => this.setState({list_stgs: []})}>Clear ALL</button>
-                <button onClick={() => this.setState({list_stgs: this.props.stagiaires})}>ALL</button>
+                <div>
+                    <button onClick={() => this.setState({ list_stgs: [] })}>Clear ALL</button>
+                    <button onClick={() => this.setState({ list_stgs: this.props.stagiaires })}>ALL</button>
+                    <button onClick={() => this.setState({ list_stgs: this.props.stagiaires.filter(s => s.filiere === 'TDI') })}>TDI</button>
+                    <button onClick={() => this.setState({ list_stgs: this.props.stagiaires.filter(s => s.filiere === 'TRI') })}>TRI</button>
+                </div>
             </div>
         )
     }
